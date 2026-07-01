@@ -12,8 +12,13 @@ const server = http.createServer(app)
 
 
 // Socket.io
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://quickchat-carrot.vercel.app" // replace with your actual Vercel URL
+];
+
 export const io = new Server(server, {
-    cors: {origin: "*"}
+    cors: { origin: allowedOrigins, credentials: true }
 })
 
 //store online users
@@ -38,8 +43,7 @@ io.on("connection", (socket)=>{
 
 //Middleware Setup
 app.use(express.json({limit: "4mb"}));
-app.use(cors());
-
+app.use(cors({ origin: allowedOrigins, credentials: true }));
 //route-setup
 app.use("/api/status", (req,res)=> res.send("Server is live"));
 app.use("/api/auth", userRouter);
