@@ -1,6 +1,7 @@
 # QuickChat
 
 QuickChat is a real-time messaging application built on the MERN stack with Socket.io for live communication. It supports authenticated one-to-one conversations, persistent message history, online presence tracking, unread message counts, and inline image sharing.
+Try it out yourself [Quick-Chat-Carrot](https://quickchat-carrot.vercel.app/)
 
 ## Overview
 
